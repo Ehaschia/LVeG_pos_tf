@@ -1,0 +1,14 @@
+{
+    "instances": [
+        "_<PAD>", 
+        "_<ROOT>", 
+        "_<END>", 
+        "useless"
+    ], 
+    "instance2index": {
+        "_<END>": 2, 
+        "_<PAD>": 0, 
+        "useless": 3, 
+        "_<ROOT>": 1
+    }
+}

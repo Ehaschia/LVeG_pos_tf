@@ -1,0 +1,18 @@
+{
+    "instances": [
+        "_PAD_POS", 
+        "_ROOT_POS", 
+        "_END_POS", 
+        "A0", 
+        "B", 
+        "A1"
+    ], 
+    "instance2index": {
+        "B": 4, 
+        "_ROOT_POS": 1, 
+        "A1": 5, 
+        "A0": 3, 
+        "_END_POS": 2, 
+        "_PAD_POS": 0
+    }
+}

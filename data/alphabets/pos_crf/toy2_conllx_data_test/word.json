@@ -1,0 +1,17 @@
+{
+    "instances": [
+        "_PAD", 
+        "_ROOT", 
+        "_END", 
+        "a", 
+        "0b"
+    ], 
+    "instance2index": {
+        "_END": 3, 
+        "a": 4, 
+        "_PAD": 1, 
+        "0b": 5, 
+        "_ROOT": 2
+    }, 
+    "singletions": []
+}
