@@ -11,8 +11,12 @@ import numpy as np
 from neuronlp2.io import get_logger, conllx_data
 from neuronlp2.models import BiRecurrentConvCRF, BiRecurrentConvLVeG
 from neuronlp2 import utils
-
-
+import tensorboard
+import os
+os.environ['CUDA_DEVICES_ORDER'] = "PCI_BUS_ID"
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
 #
 def main():
     parser = argparse.ArgumentParser(description='Tuning with bi-directional RNN-CNN-CRF')
@@ -74,6 +78,17 @@ def main():
     bigram = args.bigram
     embedding = args.embedding
     embedding_path = args.embedding_dict
+
+    if args.use_tensorboard:
+        boardWriter = tf.Summary.FileWriter(args.log_dir)
+
+    def add_loss_summary(step, loss):
+        if args.use_tensorboard:
+            boardWriter.add_summary('loss',loss,  global_step=step)
+
+    def add_acc_summary(step, acc):
+        if args.use_tensorboard:
+            boardWriter.add_summary('acc', acc, global_step=step)
     if embedding == 'random':
         embedd_dim = args.dim
         embedd_dict = None
